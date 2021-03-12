@@ -1,0 +1,6 @@
+services:
+  - docker
+
+script:
+  - docker build docker/ -t telegram-bot
+  - docker run -d -p 8443:8443 -v /data/:/data/ telegram-bot bot.py $token
